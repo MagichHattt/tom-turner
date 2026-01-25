@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tom Turner - Cyber Officer, U.S. Air Force. Cybersecurity professional with expertise in systems administration, networking, and security architecture.">
+    <meta name="keywords" content="Cyber Officer, Cybersecurity, U.S. Air Force, Systems Administration, Network Security, Tom Turner">
+    <meta name="author" content="Tom Turner">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tom-turner.com/">
+    <meta property="og:title" content="Tom Turner | Cyber Officer">
+    <meta property="og:description" content="Cyber Officer, U.S. Air Force - Cybersecurity professional with expertise in systems administration, networking, and security architecture.">
+
+    <title>Tom Turner | Cyber Officer</title>
+
+    <link rel="canonical" href="https://tom-turner.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Scanline Overlay -->
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">[</span>
+                <span class="logo-text">TTT</span>
+                <span class="logo-bracket">]</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link nav-link-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="matrix-rain" id="matrixRain"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">turner@cyber:~</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">whoami</span>
+                    </p>
+                    <h1 class="hero-name glitch" data-text="Tom Turner">Tom Turner</h1>
+                    <p class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">cat role.txt</span>
+                    </p>
+                    <p class="hero-title typing" id="heroTitle"></p>
+                    <p class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">echo $MISSION</span>
+                    </p>
+                    <p class="hero-subtitle">Leading teams. Building solutions. Securing systems.</p>
+                    <p class="terminal-line input-line">
+                        <span class="prompt">$</span>
+                        <span class="cursor">_</span>
+                    </p>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#about" class="btn btn-primary">
+                    <span class="btn-text">Explore</span>
+                    <span class="btn-icon">↓</span>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span class="btn-text">Get in Touch</span>
+                </a>
+            </div>
+            <p class="hero-hint">Press <kbd>Ctrl</kbd> + <kbd>`</kbd> for a surprise</p>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">//</span>
+                About Me
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dot"></span>
+                            <span class="code-dot"></span>
+                            <span class="code-dot"></span>
+                            <span class="code-filename">about.json</span>
+                        </div>
+                        <pre class="code-body"><code>{
+  <span class="key">"name"</span>: <span class="string">"Tom Turner"</span>,
+  <span class="key">"role"</span>: <span class="string">"Cyber Officer, U.S. Air Force"</span>,
+  <span class="key">"philosophy"</span>: <span class="string">"Tinkerer, focused on making systems work."</span>,
+  <span class="key">"approach"</span>: <span class="string">"Always curious, always learning"</span>
+}</code></pre>
+                    </div>
+                    <p class="about-paragraph">
+                        I'm a <span class="highlight">Cyber Officer</span> in the U.S. Air Force with a journey that spans from enlisted Cyber Systems Operations to commissioned officer, with a civilian stint as an Integration Engineer with the Air Force Research Laboratory.
+                    </p>
+                    <p class="about-paragraph">
+                        My path has given me a <span class="highlight">broad technical foundation</span>—from managing Windows patch cycles and VMware environments to architecting cross-domain solutions on air-gapped networks. I've served as a COMSEC Responsible Officer, built demo road kits, and currently manage two critical cyber sections.
+                    </p>
+                    <p class="about-paragraph">
+                        Outside of official duties, I'm the person who builds <span class="highlight">Linux-based crypto mining systems</span> for fun, deploys Splunk instances for testing, writes scripts to scrape the web, and lastly analyze raw data. I believe in understanding systems from the ground up and never stop exploring new technologies.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-number" data-count="10">0</span>
+                        <span class="stat-label">Years in Cyber</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-count="2">0</span>
+                        <span class="stat-label">Teams Managed</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">∞</span>
+                        <span class="stat-label">Curiosity Level</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">//</span>
+                Experience
+            </h2>
+            <div class="timeline">
+                <!-- Current Role -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="marker-dot"></span>
+                        <span class="marker-line"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-date">2022 - Present</span>
+                            <span class="timeline-status active">ACTIVE</span>
+                        </div>
+                        <h3 class="timeline-title">Cyber Officer</h3>
+                        <h4 class="timeline-company">U.S. Air Force</h4>
+                        <ul class="timeline-details">
+                            <li>Managing the <span class="highlight">C2 Mission Systems</span> shop operations and personnel</li>
+                            <li>Overseeing <span class="highlight">Comm Focal Point</span> section for communications infrastructure</li>
+                            <li>Leading teams in maintaining critical command and control systems</li>
+                            <li>Coordinating cyber defense operations and system security</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Leadership</span>
+                            <span class="tag">C2 Systems</span>
+                            <span class="tag">Team Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BAE Systems -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="marker-dot"></span>
+                        <span class="marker-line"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-date">Prior to Commission</span>
+                        </div>
+                        <h3 class="timeline-title">Integration Engineer</h3>
+                        <h4 class="timeline-company">BAE Systems (Air Force Research Laboratory)</h4>
+                        <ul class="timeline-details">
+                            <li>Implemented <span class="highlight">Cross Domain Solutions</span> on CentOS environments</li>
+                            <li>Built and maintained <span class="highlight">air-gapped test systems</span> for secure research</li>
+                            <li>Developed portable <span class="highlight">demo road kits</span> for field demonstrations</li>
+                            <li>Managed VTC/voice data systems and <span class="highlight">CUCM infrastructure</span></li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Cross Domain</span>
+                            <span class="tag">CentOS</span>
+                            <span class="tag">CUCM</span>
+                            <span class="tag">Air-Gapped</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enlisted -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="marker-dot"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-date">Foundation Years</span>
+                        </div>
+                        <h3 class="timeline-title">Cyber Systems Operations</h3>
+                        <h4 class="timeline-company">U.S. Air Force (Enlisted)</h4>
+                        <ul class="timeline-details">
+                            <li>Managed <span class="highlight">Windows patch/antivirus</span> deployment and compliance</li>
+                            <li>Administered <span class="highlight">VMware vCenter</span> environments (RedHat Linux & Windows)</li>
+                            <li>Maintained secure <span class="highlight">server room operations</span></li>
+                            <li>Served as <span class="highlight">COMSEC Responsible Officer</span></li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">VMware</span>
+                            <span class="tag">Windows Server</span>
+                            <span class="tag">COMSEC</span>
+                            <span class="tag">Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">//</span>
+                Technical Skills
+            </h2>
+            <div class="skills-grid">
+                <!-- Systems -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <span class="skill-icon">⚙</span>
+                        <h3 class="skill-title">Systems</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Linux (RedHat/CentOS)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Windows Server</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">VMware vCenter</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Server Administration</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Networking -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <span class="skill-icon">⛓</span>
+                        <h3 class="skill-title">Networking</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Cross Domain Solutions</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CUCM</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">VTC Systems</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Network Architecture</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <span class="skill-icon">🛡</span>
+                        <h3 class="skill-title">Security</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">COMSEC</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Air-Gapped Systems</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Security Architecture</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Compliance/Hardening</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <span class="skill-icon">⌨</span>
+                        <h3 class="skill-title">Tools & Dev</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Splunk</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Scripting (Bash/Python)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Database Management</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Web Scraping</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">//</span>
+                Education & Certifications
+            </h2>
+            <div class="education-grid">
+                <!-- Degrees -->
+                <div class="education-column">
+                    <h3 class="education-subtitle">
+                        <span class="subtitle-icon">📚</span>
+                        Education
+                    </h3>
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <span class="degree-icon">🎓</span>
+                        </div>
+                        <div class="education-info">
+                            <h4 class="education-degree">Master of Science</h4>
+                            <p class="education-field">Information Systems</p>
+                            <p class="education-cert">+ Certificate of Advanced Study in Information Security</p>
+                            <p class="education-school">Syracuse University</p>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <span class="degree-icon">🎓</span>
+                        </div>
+                        <div class="education-info">
+                            <h4 class="education-degree">Bachelor of Science</h4>
+                            <p class="education-field">General Studies</p>
+                            <p class="education-school">Columbia College</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="education-column">
+                    <h3 class="education-subtitle">
+                        <span class="subtitle-icon">🏆</span>
+                        Certifications
+                    </h3>
+                    <div class="cert-grid">
+                        <div class="cert-card">
+                            <div class="cert-badge">
+                                <span class="cert-icon">✓</span>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-name">Security+</h4>
+                                <p class="cert-issuer">CompTIA</p>
+                            </div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-badge">
+                                <span class="cert-icon">✓</span>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-name">CCNA</h4>
+                                <p class="cert-issuer">Cisco</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cert-note">
+                        <p>Additional certifications and training continuously pursued</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">//</span>
+                Side Projects
+            </h2>
+            <p class="section-subtitle">Where curiosity meets implementation</p>
+            <div class="projects-grid">
+                <!-- Crypto Mining -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">⛏</span>
+                        <div class="project-links">
+                            <span class="project-status">Personal</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Linux Crypto Mining System</h3>
+                    <p class="project-description">
+                        Built a complete cryptocurrency mining system from scratch on Linux.
+                        Configured hardware, optimized drivers, and automated monitoring for
+                        efficient operation.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Linux</span>
+                        <span class="tech-tag">Hardware</span>
+                        <span class="tech-tag">Automation</span>
+                        <span class="tech-tag">Monitoring</span>
+                    </div>
+                </div>
+
+                <!-- Splunk -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">📊</span>
+                        <div class="project-links">
+                            <span class="project-status">Research</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Splunk Cloud Testing Environment</h3>
+                    <p class="project-description">
+                        Deployed and configured Splunk instance for cloud computing testing
+                        and log analysis. Built custom dashboards and alerts for monitoring
+                        various data sources.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Splunk</span>
+                        <span class="tech-tag">Cloud</span>
+                        <span class="tech-tag">Analytics</span>
+                        <span class="tech-tag">SIEM</span>
+                    </div>
+                </div>
+
+                <!-- Web Scraping -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">🕷</span>
+                        <div class="project-links">
+                            <span class="project-status">Tools</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Data Scraping & Analysis Tools</h3>
+                    <p class="project-description">
+                        Developed web scraping tools for automated data collection and
+                        analysis. Built pipelines for processing, cleaning, and visualizing
+                        collected data.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Web Scraping</span>
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+
+                <!-- Future Project Placeholder -->
+                <div class="project-card project-placeholder">
+                    <div class="project-header">
+                        <span class="project-icon">🚀</span>
+                    </div>
+                    <h3 class="project-title">More Coming Soon</h3>
+                    <p class="project-description">
+                        Always tinkering with new technologies and building tools.
+                        Check back for updates on current experiments and builds.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">???</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">//</span>
+                Get in Touch
+            </h2>
+            <p class="section-subtitle">Have a question or want to connect? Send me a message.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">contact.sh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="terminal-line">
+                                <span class="comment"># Professional inquiries welcome</span>
+                            </p>
+                            <p class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">echo "Let's connect"</span>
+                            </p>
+                            <p class="terminal-output">Let's connect</p>
+                            <p class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">cat availability.txt</span>
+                            </p>
+                            <p class="terminal-output">Open to networking, mentorship,</p>
+                            <p class="terminal-output">and discussing tech.</p>
+                            <p class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="cursor">_</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required
+                               placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required
+                               placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required
+                               placeholder="What's this about?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-input form-textarea"
+                                  required placeholder="Your message..." rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                    <p class="form-note">
+                        <span class="note-icon">🔒</span>
+                        Your information is secure and will only be used to respond to your inquiry.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">[</span>
+                    <span class="logo-text">TTT</span>
+                    <span class="logo-bracket">]</span>
+                </div>
+                <p class="footer-tagline">Securing systems. Leading teams. Building solutions.</p>
+                <div class="footer-links">
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#experience" class="footer-link">Experience</a>
+                    <a href="#skills" class="footer-link">Skills</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+                <p class="footer-copy">
+                    &copy; <span id="currentYear"></span> Tom Turner. All rights reserved.
+                </p>
+                <p class="footer-hint">
+                    <kbd>Ctrl</kbd> + <kbd>`</kbd> for terminal mode
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden Terminal Easter Egg -->
+    <div class="terminal-overlay" id="terminalOverlay">
+        <div class="easter-terminal" id="easterTerminal">
+            <div class="terminal-header">
+                <span class="terminal-dot red" id="terminalClose"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">turner@cyber:~ [SECRET TERMINAL]</span>
+            </div>
+            <div class="terminal-body" id="terminalOutput">
+                <p class="terminal-welcome">
+====================================
+  Welcome to the Secret Terminal!
+====================================
+
+Type 'help' to see available commands.
+                </p>
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt">guest@turner:~$</span>
+                <input type="text" class="terminal-input" id="terminalInput"
+                       autocomplete="off" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/terminal.js"></script>
+</body>
+</html>
