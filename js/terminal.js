@@ -395,7 +395,7 @@ ${joke}
 <span class="success">      /\`\\_/\`\\       </span>   <span class="info">Host:</span> tom-turner.com
 <span class="success">     //  _  \\\\      </span>   <span class="info">Kernel:</span> HTML5/CSS3/JS
 <span class="success">    | \\     )|_     </span>   <span class="info">Shell:</span> Terminal v1.0
-<span class="success">   /\`\\_\`>  <_/ \\    </span>   <span class="info">Theme:</span> Matrix Dark
+<span class="success">   /\`\\_\`>  <_/ \\    </span>   <span class="info">Theme:</span> Ops Dark
 <span class="success">   \\__/'---'\\__/    </span>   <span class="info">Terminal:</span> Easter Egg
                        <span class="info">Date:</span> ${now.toLocaleDateString()}
                        <span class="info">Time:</span> ${now.toLocaleTimeString()}

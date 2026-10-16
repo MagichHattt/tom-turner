@@ -14,7 +14,7 @@
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
     const heroTitle = document.getElementById('heroTitle');
-    const matrixRain = document.getElementById('matrixRain');
+    const radarScope = document.getElementById('radarScope');
     const contactForm = document.getElementById('contactForm');
     const statNumbers = document.querySelectorAll('.stat-number[data-count]');
     const skillBars = document.querySelectorAll('.skill-progress');
@@ -168,54 +168,182 @@
     }
 
     // ============================================
-    // Matrix Rain Effect
+    // Radar Scope Effect
     // ============================================
-    function initMatrixRain() {
-        if (!matrixRain) return;
+    function initRadarScope() {
+        if (!radarScope) return;
 
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-        matrixRain.appendChild(canvas);
+        radarScope.appendChild(canvas);
+
+        const amber = '245, 165, 36';
+        const steel = '127, 178, 217';
+        const sweepSpeed = (Math.PI * 2) / 6000; // one rotation every 6 seconds
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        let width = 0;
+        let height = 0;
+        let cx = 0;
+        let cy = 0;
+        let radius = 0;
+        let contacts = [];
 
         function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resize();
-        window.addEventListener('resize', debounce(resize, 100));
-
-        const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const charArray = chars.split('');
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = [];
-
-        for (let i = 0; i < columns; i++) {
-            drops[i] = Math.floor(Math.random() * -100);
+            const dpr = window.devicePixelRatio || 1;
+            width = radarScope.clientWidth;
+            height = radarScope.clientHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            cx = width / 2;
+            cy = height / 2;
+            // On narrow screens let the scope spill past the sides so it shows around the card
+            radius = width < 700 ? height * 0.4 : Math.min(width, height) * 0.46;
         }
 
-        function draw() {
-            ctx.fillStyle = 'rgba(10, 10, 15, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Contacts are stored in polar form so they survive a resize
+        function createContact() {
+            return {
+                angle: Math.random() * Math.PI * 2,
+                range: 0.2 + Math.random() * 0.75,
+                drift: (Math.random() - 0.5) * 0.00004,
+                heading: (Math.random() - 0.5) * 0.00002
+            };
+        }
 
-            ctx.fillStyle = '#00ff41';
-            ctx.font = `${fontSize}px monospace`;
+        for (let i = 0; i < 7; i++) {
+            contacts.push(createContact());
+        }
 
-            for (let i = 0; i < drops.length; i++) {
-                const char = charArray[Math.floor(Math.random() * charArray.length)];
-                const x = i * fontSize;
-                const y = drops[i] * fontSize;
+        function drawScope() {
+            ctx.lineWidth = 1;
 
-                ctx.fillText(char, x, y);
-
-                if (y > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
+            // Range rings
+            for (let i = 1; i <= 4; i++) {
+                ctx.strokeStyle = `rgba(${steel}, ${i === 4 ? 0.35 : 0.18})`;
+                ctx.beginPath();
+                ctx.arc(cx, cy, (radius * i) / 4, 0, Math.PI * 2);
+                ctx.stroke();
             }
+
+            // Crosshair and diagonals
+            ctx.strokeStyle = `rgba(${steel}, 0.12)`;
+            ctx.beginPath();
+            for (let i = 0; i < 4; i++) {
+                const a = (i * Math.PI) / 4;
+                ctx.moveTo(cx - Math.cos(a) * radius, cy - Math.sin(a) * radius);
+                ctx.lineTo(cx + Math.cos(a) * radius, cy + Math.sin(a) * radius);
+            }
+            ctx.stroke();
+
+            // Bearing ticks around the outer ring
+            ctx.strokeStyle = `rgba(${steel}, 0.3)`;
+            ctx.beginPath();
+            for (let deg = 0; deg < 360; deg += 5) {
+                const a = (deg * Math.PI) / 180;
+                const inner = radius - (deg % 30 === 0 ? 12 : 5);
+                ctx.moveTo(cx + Math.cos(a) * inner, cy + Math.sin(a) * inner);
+                ctx.lineTo(cx + Math.cos(a) * radius, cy + Math.sin(a) * radius);
+            }
+            ctx.stroke();
         }
 
-        setInterval(draw, 50);
+        function drawSweep(angle) {
+            // Fading trail behind the sweep line
+            const trail = Math.PI / 2.5;
+            const steps = 40;
+            for (let i = 0; i < steps; i++) {
+                const a0 = angle - (trail * (i + 1)) / steps;
+                const a1 = angle - (trail * i) / steps;
+                ctx.fillStyle = `rgba(${amber}, ${0.16 * (1 - i / steps)})`;
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.arc(cx, cy, radius, a0, a1 + 0.002);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            // Leading edge
+            ctx.strokeStyle = `rgba(${amber}, 0.8)`;
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+            ctx.stroke();
+        }
+
+        function drawContacts(angle, dt) {
+            const full = Math.PI * 2;
+            contacts.forEach(contact => {
+                contact.angle += contact.drift * dt;
+                contact.range += contact.heading * dt;
+                if (contact.range < 0.15 || contact.range > 0.95) {
+                    Object.assign(contact, createContact());
+                }
+
+                // Brightest just after the sweep passes, then fades out
+                const since = (((angle - contact.angle) % full) + full) % full;
+                const strength = Math.max(0, 1 - since / (full * 0.85));
+                if (strength <= 0) return;
+
+                const x = cx + Math.cos(contact.angle) * contact.range * radius;
+                const y = cy + Math.sin(contact.angle) * contact.range * radius;
+
+                ctx.fillStyle = `rgba(${amber}, ${0.12 * strength})`;
+                ctx.beginPath();
+                ctx.arc(x, y, 9, 0, full);
+                ctx.fill();
+
+                ctx.fillStyle = `rgba(${amber}, ${0.9 * strength})`;
+                ctx.beginPath();
+                ctx.arc(x, y, 2.5, 0, full);
+                ctx.fill();
+            });
+        }
+
+        function render(angle, dt) {
+            ctx.clearRect(0, 0, width, height);
+            drawScope();
+            drawSweep(angle);
+            drawContacts(angle, dt);
+        }
+
+        resize();
+        window.addEventListener('resize', debounce(() => {
+            resize();
+            if (reduceMotion) render(-Math.PI / 4, 0);
+        }, 100));
+
+        // Respect reduced-motion settings with a still frame
+        if (reduceMotion) {
+            render(-Math.PI / 4, 0);
+            return;
+        }
+
+        // Only animate while the hero is on screen
+        let visible = true;
+        let last = performance.now();
+        let angle = -Math.PI / 2;
+
+        function frame(now) {
+            const dt = Math.min(now - last, 100);
+            last = now;
+            angle = (angle + sweepSpeed * dt) % (Math.PI * 2);
+            render(angle, dt);
+            if (visible) requestAnimationFrame(frame);
+        }
+
+        new IntersectionObserver(entries => {
+            const wasVisible = visible;
+            visible = entries[0].isIntersecting;
+            if (visible && !wasVisible) {
+                last = performance.now();
+                requestAnimationFrame(frame);
+            }
+        }).observe(radarScope);
+
+        requestAnimationFrame(frame);
     }
 
     // ============================================
@@ -379,7 +507,7 @@
     function init() {
         initNavigation();
         initTypingAnimation();
-        initMatrixRain();
+        initRadarScope();
         initStatsCounter();
         initSkillBars();
         initScrollReveal();
@@ -389,9 +517,9 @@
 
         // Log welcome message for devtools
         console.log('%c Welcome to Tom Turner\'s Portfolio! ',
-            'background: #00ff41; color: #0a0a0f; font-size: 14px; font-weight: bold; padding: 10px;');
+            'background: #f5a524; color: #0a1120; font-size: 14px; font-weight: bold; padding: 10px;');
         console.log('%c Try pressing Ctrl + ` for a surprise... ',
-            'color: #00d4ff; font-size: 12px;');
+            'color: #7fb2d9; font-size: 12px;');
     }
 
     // Run on DOM ready
