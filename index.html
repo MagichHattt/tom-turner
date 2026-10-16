@@ -589,7 +589,11 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="3b26b640-60e6-4b10-ac4d-e6dd1e4bcd4c">
+                    <input type="hidden" name="from_name" value="tom-turner.com contact form">
+                    <!-- Honeypot spam trap: hidden from people, bots fill it in -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
                     <div class="form-group">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" id="name" name="name" class="form-input" required

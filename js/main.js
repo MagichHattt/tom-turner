@@ -316,29 +316,37 @@
             submitBtn.innerHTML = '<span class="btn-text">Sending...</span>';
             submitBtn.disabled = true;
 
-            // Simulate form submission (replace with actual endpoint)
-            // For now, we'll just simulate a delay and show success
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            // Send the form to Web3Forms, which emails it on
+            let sent = false;
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(contactForm)
+                });
+                const result = await response.json();
+                sent = response.ok && result.success;
+            } catch (error) {
+                sent = false;
+            }
 
-            // Show success state
-            submitBtn.innerHTML = '<span class="btn-text">Message Sent!</span>';
-            submitBtn.style.background = '#27ca40';
-
-            // Reset form
-            contactForm.reset();
+            if (sent) {
+                // Show success state
+                submitBtn.innerHTML = '<span class="btn-text">Message Sent!</span>';
+                submitBtn.style.background = '#27ca40';
+                contactForm.reset();
+            } else {
+                // Show error state, keeping what the visitor typed
+                submitBtn.innerHTML = '<span class="btn-text">Failed - please try again</span>';
+                submitBtn.style.background = '#ff5f56';
+            }
 
             // Reset button after delay
             setTimeout(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.style.background = '';
                 submitBtn.disabled = false;
-            }, 3000);
-
-            // Note: In production, you would integrate with a service like:
-            // - Formspree (https://formspree.io)
-            // - Netlify Forms
-            // - EmailJS
-            // - Your own backend endpoint
+            }, 4000);
         });
     }
 
