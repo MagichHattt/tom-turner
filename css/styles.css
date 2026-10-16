@@ -1,6 +1,6 @@
 /* ============================================
    TOM TURNER - CYBER PORTFOLIO
-   Mission / ops theme: navy, slate and amber with a radar scope
+   Mission / ops theme: navy, slate and radar green with a radar scope
    ============================================ */
 
 /* CSS Variables */
@@ -12,8 +12,8 @@
     --bg-card: #142036;
 
     /* Accent Colors */
-    --accent-primary: #f5a524;
-    --accent-primary-dim: #c98512;
+    --accent-primary: #3ee67a;
+    --accent-primary-dim: #2bb85e;
     --accent-secondary: #7fb2d9;
     --accent-blue: #4a7fb5;
     --accent-purple: #8b5cf6;
@@ -34,13 +34,13 @@
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-    --gradient-card: linear-gradient(180deg, rgba(245, 165, 36,0.03) 0%, transparent 100%);
+    --gradient-card: linear-gradient(180deg, rgba(62, 230, 122,0.03) 0%, transparent 100%);
 
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
     --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
     --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
-    --shadow-glow: 0 0 20px rgba(245, 165, 36,0.2);
+    --shadow-glow: 0 0 20px rgba(62, 230, 122,0.2);
 
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -256,13 +256,13 @@ body {
 }
 
 .nav-link-cta {
-    background: rgba(245, 165, 36, 0.1);
+    background: rgba(62, 230, 122, 0.1);
     border: 1px solid var(--accent-primary);
     border-radius: var(--radius-sm);
 }
 
 .nav-link-cta:hover {
-    background: rgba(245, 165, 36, 0.2);
+    background: rgba(62, 230, 122, 0.2);
 }
 
 .nav-link-cta::before {
@@ -402,7 +402,7 @@ body {
     font-weight: 700;
     color: var(--accent-primary);
     margin: var(--spacing-md) 0;
-    text-shadow: 0 0 24px rgba(245, 165, 36, 0.25);
+    text-shadow: 0 0 24px rgba(62, 230, 122, 0.25);
 }
 
 .hero-title {
@@ -490,7 +490,7 @@ kbd {
 }
 
 .btn-secondary:hover {
-    background: rgba(245, 165, 36, 0.1);
+    background: rgba(62, 230, 122, 0.1);
     transform: translateY(-2px);
 }
 
@@ -764,7 +764,7 @@ kbd {
     letter-spacing: 1px;
     padding: 2px 8px;
     border-radius: var(--radius-sm);
-    background: rgba(245, 165, 36, 0.2);
+    background: rgba(62, 230, 122, 0.2);
     color: var(--accent-primary);
 }
 
@@ -1000,7 +1000,7 @@ kbd {
 .cert-badge {
     width: 40px;
     height: 40px;
-    background: rgba(245, 165, 36, 0.2);
+    background: rgba(62, 230, 122, 0.2);
     border: 2px solid var(--accent-primary);
     border-radius: 50%;
     display: flex;
@@ -1108,7 +1108,7 @@ kbd {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 4px 8px;
-    background: rgba(245, 165, 36, 0.1);
+    background: rgba(62, 230, 122, 0.1);
     border: 1px solid var(--accent-primary);
     border-radius: var(--radius-sm);
     color: var(--accent-primary);
@@ -1197,7 +1197,7 @@ kbd {
 .form-input:focus {
     outline: none;
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(245, 165, 36, 0.1);
+    box-shadow: 0 0 0 3px rgba(62, 230, 122, 0.1);
 }
 
 .form-input::placeholder {
@@ -1313,7 +1313,7 @@ kbd {
     background: var(--terminal-bg);
     border: 2px solid var(--accent-primary);
     border-radius: var(--radius-md);
-    box-shadow: 0 0 40px rgba(245, 165, 36, 0.3);
+    box-shadow: 0 0 40px rgba(62, 230, 122, 0.3);
     display: flex;
     flex-direction: column;
     transform: scale(0.9);

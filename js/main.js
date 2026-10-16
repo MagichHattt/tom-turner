@@ -177,7 +177,7 @@
         const ctx = canvas.getContext('2d');
         radarScope.appendChild(canvas);
 
-        const amber = '245, 165, 36';
+        const green = '62, 230, 122';
         const steel = '127, 178, 217';
         const sweepSpeed = (Math.PI * 2) / 6000; // one rotation every 6 seconds
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -256,7 +256,7 @@
             for (let i = 0; i < steps; i++) {
                 const a0 = angle - (trail * (i + 1)) / steps;
                 const a1 = angle - (trail * i) / steps;
-                ctx.fillStyle = `rgba(${amber}, ${0.16 * (1 - i / steps)})`;
+                ctx.fillStyle = `rgba(${green}, ${0.16 * (1 - i / steps)})`;
                 ctx.beginPath();
                 ctx.moveTo(cx, cy);
                 ctx.arc(cx, cy, radius, a0, a1 + 0.002);
@@ -265,7 +265,7 @@
             }
 
             // Leading edge
-            ctx.strokeStyle = `rgba(${amber}, 0.8)`;
+            ctx.strokeStyle = `rgba(${green}, 0.8)`;
             ctx.lineWidth = 1.5;
             ctx.beginPath();
             ctx.moveTo(cx, cy);
@@ -290,12 +290,12 @@
                 const x = cx + Math.cos(contact.angle) * contact.range * radius;
                 const y = cy + Math.sin(contact.angle) * contact.range * radius;
 
-                ctx.fillStyle = `rgba(${amber}, ${0.12 * strength})`;
+                ctx.fillStyle = `rgba(${green}, ${0.12 * strength})`;
                 ctx.beginPath();
                 ctx.arc(x, y, 9, 0, full);
                 ctx.fill();
 
-                ctx.fillStyle = `rgba(${amber}, ${0.9 * strength})`;
+                ctx.fillStyle = `rgba(${green}, ${0.9 * strength})`;
                 ctx.beginPath();
                 ctx.arc(x, y, 2.5, 0, full);
                 ctx.fill();
@@ -517,7 +517,7 @@
 
         // Log welcome message for devtools
         console.log('%c Welcome to Tom Turner\'s Portfolio! ',
-            'background: #f5a524; color: #0a1120; font-size: 14px; font-weight: bold; padding: 10px;');
+            'background: #3ee67a; color: #0a1120; font-size: 14px; font-weight: bold; padding: 10px;');
         console.log('%c Try pressing Ctrl + ` for a surprise... ',
             'color: #7fb2d9; font-size: 12px;');
     }
